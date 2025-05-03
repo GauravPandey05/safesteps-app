@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  Image,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -38,6 +39,7 @@ export default function LoginScreen() {
 
   return (
     <View style={styles.container}>
+      <Image source={require('@/assets/images/logo.png')} style={styles.logo} />
       <Text style={styles.heading}>Login</Text>
       <TextInput
         style={styles.input}
@@ -54,7 +56,10 @@ export default function LoginScreen() {
         value={password}
         onChangeText={setPassword}
       />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={handleLogin}
+      >
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
 
@@ -73,22 +78,30 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
+    backgroundColor: '#E5ECE9', // Set background color to white
+  },
+  logo: {
+    width: 150, // Increased width
+    height: 150, // Increased height
+    alignSelf: 'center',
+    marginBottom: 20,
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    color: '#333333',
   },
   input: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#ffffff',
     padding: 14,
     borderRadius: 10,
     fontSize: 16,
     marginBottom: 10,
   },
   button: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: '#f09599',
     padding: 16,
     alignItems: 'center',
     borderRadius: 12,
@@ -103,7 +116,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   signupText: {
-    color: '#1E90FF',
+    color: '#333333',
     fontWeight: '600',
     fontSize: 16,
   },

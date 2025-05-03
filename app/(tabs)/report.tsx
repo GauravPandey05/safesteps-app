@@ -23,7 +23,7 @@ export default function ReportScreen() {
   const [description, setDescription] = useState('');
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [severity, setSeverity] = useState('Medium');
+  const [severity, setSeverity] = useState('');
   const [image, setImage] = useState<string | null>(null);
   const [location, setLocation] = useState<Location.LocationObject | null>(null);
   const [anonymous, setAnonymous] = useState(false);
@@ -125,7 +125,7 @@ export default function ReportScreen() {
     setType('');
     setDescription('');
     setName('');
-    setSeverity('Medium');
+    setSeverity('');
     setImage(null);
     setLocation(null);
     setAnonymous(false);
@@ -217,8 +217,8 @@ export default function ReportScreen() {
   };
 
   return (
-    <ScrollView style={[styles.container, isDark && styles.darkContainer]}>
-      <Text style={[styles.heading, isDark && styles.darkText]}>Report an Incident</Text>
+    <ScrollView style={[styles.container]}>
+      <Text style={[styles.heading]}>Report an Incident</Text>
 
       <View style={styles.typeContainer}>
         {incidentTypes.map((incidentType) => (
@@ -226,15 +226,13 @@ export default function ReportScreen() {
             key={incidentType}
             style={[
               styles.typeChip,
-              type === incidentType && styles.selectedTypeChip,
-              isDark && styles.darkTypeChip
+              type === incidentType && styles.selectedTypeChip
             ]}
             onPress={() => handleTypeSelection(incidentType)}
           >
             <Text style={[
               styles.typeText,
-              type === incidentType && styles.selectedTypeText,
-              isDark && styles.darkText
+              type === incidentType && styles.selectedTypeText
             ]}>
               {incidentType}
             </Text>
@@ -242,22 +240,20 @@ export default function ReportScreen() {
         ))}
       </View>
 
-      <Text style={[styles.label, isDark && styles.darkText]}>Severity Level</Text>
+      <Text style={[styles.label]}>Severity Level</Text>
       <View style={styles.severityContainer}>
         {severityLevels.map((level) => (
           <TouchableOpacity
             key={level}
             style={[
               styles.severityChip,
-              severity === level && styles.selectedSeverityChip,
-              isDark && styles.darkSeverityChip
+              severity === level && styles.selectedSeverityChip
             ]}
             onPress={() => handleSeveritySelection(level)}
           >
             <Text style={[
               styles.severityText,
-              severity === level && styles.selectedSeverityChip,
-              isDark && styles.darkText
+              severity === level && styles.selectedSeverityChip
             ]}>
               {level}
             </Text>
@@ -265,9 +261,9 @@ export default function ReportScreen() {
         ))}
       </View>
 
-      <Text style={[styles.label, isDark && styles.darkText]}>Description</Text>
+      <Text style={[styles.label]}>Description</Text>
       <TextInput
-        style={[styles.input, { height: 100 }, isDark && styles.darkInput]}
+        style={[styles.input, { height: 100 }]}
         multiline
         placeholder="Describe what happened..."
         placeholderTextColor={isDark ? '#888' : '#666'}
@@ -279,7 +275,6 @@ export default function ReportScreen() {
         <TouchableOpacity 
           style={[
             styles.mediaButton, 
-            isDark && styles.darkMediaButton,
             pressedButtons['photo'] && styles.pressedButton,
             image && styles.selectedButton
           ]} 
@@ -290,11 +285,10 @@ export default function ReportScreen() {
           <Ionicons 
             name="camera" 
             size={24} 
-            color={image ? '#fff' : (isDark ? '#fff' : '#1E90FF')} 
+            color={image ? '#fff' : '#000'} 
           />
           <Text style={[
             styles.mediaButtonText, 
-            isDark && styles.darkText,
             image && styles.selectedButtonText
           ]}>
             {image ? 'Photo Added' : 'Add Photo'}
@@ -304,7 +298,6 @@ export default function ReportScreen() {
         <TouchableOpacity 
           style={[
             styles.mediaButton, 
-            isDark && styles.darkMediaButton,
             pressedButtons['location'] && styles.pressedButton,
             location && styles.selectedButton
           ]}
@@ -315,11 +308,10 @@ export default function ReportScreen() {
           <Ionicons 
             name="location" 
             size={24} 
-            color={location ? '#fff' : (isDark ? '#fff' : '#1E90FF')} 
+            color={location ? '#fff' : '#000'} 
           />
           <Text style={[
             styles.mediaButtonText, 
-            isDark && styles.darkText,
             location && styles.selectedButtonText
           ]}>
             {location ? 'Location Added' : 'Add Location'}
@@ -331,7 +323,7 @@ export default function ReportScreen() {
         <View style={styles.imagePreview}>
           <Image source={{ uri: image }} style={styles.previewImage} />
           <TouchableOpacity onPress={() => setImage(null)}>
-            <Ionicons name="close-circle" size={24} color="red" />
+            <Ionicons name="close-circle" size={24} color="#000" />
           </TouchableOpacity>
         </View>
       )}
@@ -339,26 +331,26 @@ export default function ReportScreen() {
       {location && (
         <View style={styles.locationInfo}>
           <Ionicons name="location" size={16} color={isDark ? '#fff' : '#666'} />
-          <Text style={[styles.locationText, isDark && styles.darkText]}>
+          <Text style={[styles.locationText]}>
             {`Lat: ${location.coords.latitude.toFixed(6)}, Long: ${location.coords.longitude.toFixed(6)}`}
           </Text>
           <TouchableOpacity onPress={() => setLocation(null)}>
-            <Ionicons name="close-circle" size={20} color="red" />
+            <Ionicons name="close-circle" size={20} color="#000" />
           </TouchableOpacity>
         </View>
       )}
 
       <TouchableOpacity
-        style={[styles.toggleButton, isDark && styles.darkToggleButton]}
+        style={[styles.toggleButton]}
         onPress={toggleAnonymous}
       >
         <Ionicons 
           name={anonymous ? "eye-off" : "eye"} 
           size={24} 
-          color={isDark ? '#fff' : '#1E90FF'} 
+          color="#000" 
         />
-        <Text style={[styles.toggleText, isDark && styles.darkText]}>
-          {anonymous ? 'Report Anonymously' : 'Report with Identity'}
+        <Text style={[styles.toggleText]}>
+          {anonymous ? '  Report Anonymously' : '  Report with Identity'}
         </Text>
       </TouchableOpacity>
 
@@ -366,7 +358,6 @@ export default function ReportScreen() {
         style={[
           styles.submitButton,
           loading && styles.buttonDisabled,
-          isDark && styles.darkSubmitButton,
           pressedButtons['submit'] && styles.pressedSubmitButton
         ]}
         onPressIn={() => handleButtonPress('submit')}
@@ -386,6 +377,7 @@ export default function ReportScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#E5ECE9',
     paddingVertical: 30,
     paddingHorizontal: 20,
     gap: 20,
@@ -394,21 +386,24 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: "#f09599",
   },
   label: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '500',
     marginBottom: 6,
-    color: '#444',
+    color: '#333333',
   },
   input: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f0f0f0',
     padding: 14,
     borderRadius: 10,
     fontSize: 16,
+    borderWidth: 1,
+    borderColor: "#cccccc",
   },
   button: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: '#f09599',
     padding: 16,
     alignItems: 'center',
     borderRadius: 12,
@@ -420,7 +415,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   submitButton: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: '#f09599',
     padding: 16,
     alignItems: 'center',
     borderRadius: 12,
@@ -443,11 +438,11 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: '#f0f0f0',
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#333333',
   },
   selectedTypeChip: {
-    backgroundColor: '#1E90FF',
-    borderColor: '#1E90FF',
+    backgroundColor: '#f09599',
+    borderColor: '#f09599',
   },
   typeText: {
     color: '#666',
@@ -467,10 +462,14 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     alignItems: 'center',
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#333333",
     backgroundColor: '#f0f0f0',
   },
   selectedSeverityChip: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: '#f09599',
+    color: "#ffffff",
+    borderWidth: 0,
   },
   mediaSection: {
     flexDirection: 'row',
@@ -489,7 +488,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 1,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#cccccc',
   },
   imagePreview: {
     flexDirection: 'row',
@@ -573,8 +572,8 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.98 }],
   },
   pressedSubmitButton: {
-    backgroundColor: '#1873CC',
-    opacity: 0.9,
+    backgroundColor: '#edafb2',
+    opacity: 1,
     transform: [{ scale: 0.98 }],
   },
   buttonDisabled: {

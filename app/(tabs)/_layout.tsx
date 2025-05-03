@@ -15,7 +15,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'white',  // Ensure white for active icons
+        tabBarActiveTintColor: '#878485',  // Ensure white for active icons
         tabBarInactiveTintColor: 'white', // Set inactive icons to white too
         headerShown: false,
         tabBarButton: HapticTab,
@@ -23,8 +23,11 @@ export default function TabLayout() {
         tabBarStyle: Platform.select({
           ios: {
             position: 'absolute',
+            backgroundColor: '#000', // Updated bottom tab color
           },
-          default: {},
+          default: {
+            backgroundColor: '#000', // Updated bottom tab color
+          },
         }),
       }}
     >

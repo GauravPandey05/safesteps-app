@@ -143,13 +143,13 @@ export default function HomeScreen() {
   };
 
   return (
-    <ScrollView style={[styles.container, isDark && styles.darkContainer]}>
+    <ScrollView style={[styles.container]}>
       {/* Welcome Section */}
-      <View style={[styles.header, isDark && styles.darkSection]}>
+      <View style={[styles.header]}>
         <View style={styles.welcomeSection}>
           <View>
-            <Text style={[styles.greeting, isDark && styles.darkText]}>Hi {userName} 👋</Text>
-            <Text style={[styles.locationText, isDark && styles.darkSubtext]}>
+            <Text style={[styles.greeting]}>Hi {userName} 👋</Text>
+            <Text style={[styles.locationText]}>
               {userLocation ? 'You are in a SafeZone ✅' : 'Fetching location...'}
             </Text>
           </View>
@@ -161,7 +161,7 @@ export default function HomeScreen() {
       </View>
 
       {/* Safety Score Card */}
-      <View style={[styles.scoreCard, isDark && styles.darkCard]}>
+      <View style={[styles.scoreCard]}>
       <View style={styles.card}>
         <Text style={styles.cardTitle}>🔒 Safety Status</Text>
         <Text style={styles.cardText}>{safetyStatus}</Text>
@@ -181,36 +181,36 @@ export default function HomeScreen() {
       {/* Quick Actions */}
       <View style={styles.quickActions}>
         <TouchableOpacity 
-          style={[styles.actionButton, isDark && styles.darkActionButton]}
+          style={[styles.actionButton]}
           onPress={() => router.push('/saferoutes')}>
-          <Ionicons name="map" size={24} color={isDark ? '#fff' : '#1E90FF'} />
-          <Text style={[styles.actionText, isDark && styles.darkText]}>Safe Routes</Text>
+          <Ionicons name="map" size={24} color="#fff" /> {/* Changed to black */}
+          <Text style={[styles.actionText]}>Safe Routes</Text>
         </TouchableOpacity>
 
         <TouchableOpacity 
-          style={[styles.actionButton, isDark && styles.darkActionButton]}
+          style={[styles.actionButton]}
           onPress={() => router.push('/report')}>
-          <Ionicons name="warning" size={24} color={isDark ? '#fff' : '#1E90FF'} />
-          <Text style={[styles.actionText, isDark && styles.darkText]}>Report</Text>
+          <Ionicons name="warning" size={24} color="#fff" /> {/* Changed to black */}
+          <Text style={[styles.actionText]}>Report</Text>
         </TouchableOpacity>
 
         <TouchableOpacity 
-          style={[styles.actionButton, isDark && styles.darkActionButton]}
+          style={[styles.actionButton]}
           onPress={() => router.push('/profile')}>
-          <Ionicons name="people" size={24} color={isDark ? '#fff' : '#1E90FF'} />
-          <Text style={[styles.actionText, isDark && styles.darkText]}>Contacts</Text>
+          <Ionicons name="people" size={24} color="#fff" /> {/* Changed to black */}
+          <Text style={[styles.actionText]}>Contacts</Text>
         </TouchableOpacity>
       </View>
 
       {/* Recent Alerts */}
-      <View style={[styles.section, isDark && styles.darkSection]}>
-        <Text style={[styles.sectionTitle, isDark && styles.darkText]}>Recent Alerts</Text>
+      <View style={[styles.section]}>
+        <Text style={[styles.sectionTitle]}>Recent Alerts</Text>
         {recentReports.map((report, index) => (
-          <View key={index} style={[styles.alertCard, isDark && styles.darkCard]}>
+          <View key={index} style={[styles.alertCard]}>
             <Ionicons name="alert-circle" size={20} color="#FF3B30" />
             <View style={styles.alertInfo}>
-              <Text style={[styles.alertTitle, isDark && styles.darkText]}>{report.type}</Text>
-              <Text style={[styles.alertDescription, isDark && styles.darkSubtext]}>
+              <Text style={[styles.alertTitle]}>{report.type}</Text>
+              <Text style={[styles.alertDescription]}>
                 {report.description?.slice(0, 100)}...
               </Text>
             </View>
@@ -219,30 +219,30 @@ export default function HomeScreen() {
       </View>
 
       {/* Safety Tips */}
-      <View style={[styles.section, isDark && styles.darkSection]}>
-        <Text style={[styles.sectionTitle, isDark && styles.darkText]}>Safety Tips</Text>
+      <View style={[styles.section]}>
+        <Text style={[styles.sectionTitle]}>Safety Tips</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {SAFETY_TIPS.map((tip, index) => (
-            <View key={index} style={[styles.tipCard, isDark && styles.darkCard]}>
-              <Ionicons name={tip.icon} size={24} color="#1E90FF" />
-              <Text style={[styles.tipTitle, isDark && styles.darkText]}>{tip.title}</Text>
-              <Text style={[styles.tipDescription, isDark && styles.darkSubtext]}>{tip.description}</Text>
+            <View key={index} style={[styles.tipCard]}>
+              <Ionicons name={tip.icon} size={24} color="#000" />
+              <Text style={[styles.tipTitle]}>{tip.title}</Text>
+              <Text style={[styles.tipDescription]}>{tip.description}</Text>
             </View>
           ))}
         </ScrollView>
       </View>
 
       {/* Emergency Contacts */}
-      <View style={[styles.section, isDark && styles.darkSection]}>
-        <Text style={[styles.sectionTitle, isDark && styles.darkText]}>Quick Contacts</Text>
+      <View style={[styles.section]}>
+        <Text style={[styles.sectionTitle]}>Quick Contacts</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {trustedContacts.map((contact, index) => (
-            <TouchableOpacity key={index} style={[styles.contactCard, isDark && styles.darkCard]}>
+            <TouchableOpacity key={index} style={[styles.contactCard]}>
               <View style={styles.contactIcon}>
-                <Ionicons name="person" size={24} color="#1E90FF" />
+                <Ionicons name="person" size={24} color="#f09599" />
               </View>
-              <Text style={[styles.contactName, isDark && styles.darkText]}>{contact.name}</Text>
-              <Text style={[styles.contactPhone, isDark && styles.darkSubtext]}>{contact.phone}</Text>
+              <Text style={[styles.contactName]}>{contact.name}</Text>
+              <Text style={[styles.contactPhone]}>{contact.phone}</Text>
             </TouchableOpacity>
           ))}
         </ScrollView>
@@ -273,7 +273,7 @@ const SAFETY_TIPS = [
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#E5ECE9', // Updated background color
   },
   darkContainer: {
     backgroundColor: '#121212',
@@ -293,6 +293,7 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#f09599',
   },
   darkText: {
     color: '#FFFFFF',
@@ -327,7 +328,7 @@ const styles = StyleSheet.create({
   card: {
     marginBottom: 16,
     padding: 16,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#f0f0f0',
     borderRadius: 12,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -342,6 +343,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     marginBottom: 12,
+    color: '#333333',
   },
   cardText: {
     fontSize: 14,
@@ -374,7 +376,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     alignItems: 'center',
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#f09599',
     padding: 16,
     borderRadius: 12,
     width: width / 3.5,
@@ -386,11 +388,13 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 14,
     fontWeight: '500',
+    color: '#ffffff',
   },
   section: {
     padding: 16,
   },
   sectionTitle: {
+    color: '#333',
     fontSize: 18,
     fontWeight: '600',
     marginBottom: 12,
@@ -410,6 +414,7 @@ const styles = StyleSheet.create({
   alertTitle: {
     fontSize: 16,
     fontWeight: '500',
+    color: '#333',
   },
   alertDescription: {
     fontSize: 14,
@@ -427,6 +432,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     marginTop: 8,
+    color: '#333',
   },
   tipDescription: {
     fontSize: 14,
@@ -445,7 +451,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: '#f0f0f0',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 8,
@@ -453,6 +459,7 @@ const styles = StyleSheet.create({
   contactName: {
     fontSize: 16,
     fontWeight: '500',
+    color: '#333',
   },
   contactPhone: {
     fontSize: 14,
