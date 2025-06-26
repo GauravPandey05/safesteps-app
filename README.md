@@ -11,35 +11,86 @@ With cutting-edge features like geolocation, safety heatmaps, and trusted contac
 
 ## 🚀 Features
 
-* 🆘 **SOS Emergency Alerts**
+* 🆘 **SOS Emergency Alerts**  
   One-tap or voice-triggered SOS to notify trusted contacts and emergency responders.
 
-* 🗺️ **Community Incident Reporting**
+* 🗺️ **Community Incident Reporting**  
   Report and view incidents in real-time to keep the community informed.
 
-* 🔥 **Safety Heatmaps**
+* 🔥 **Safety Heatmaps**  
   Live visual maps highlighting danger zones based on recent reports (powered by Leaflet).
 
-* 🛡️ **Safe Route Suggestions**
+* 🛡️ **Safe Route Suggestions**  
   Navigation paths that avoid reported risk areas.
 
-* ⏰ **Check-In Timer**
+* ⏰ **Check-In Timer**  
   Automatically sends alerts if the user doesn’t check in within a set time.
 
-* 📡 **Offline Awareness**
+* 📡 **Offline Awareness**  
   Key features are optimized to work under low or no connectivity conditions.
 
-* 👩‍👧‍👦 **Trusted Contacts**
+* 👩‍👧‍👦 **Trusted Contacts**  
   Add personal emergency contacts for quick notifications.
 
-* 🏥 **Emergency Info Storage**
+* 🏥 **Emergency Info Storage**  
   Save blood group, allergies, and critical health data.
-
-
 
 ---
 
-## 🧰 Tech Stack
+## 📱 Screenshots
+
+<table>
+  <tr>
+    <td align="center">
+      <b>Dashboard – Your Safety Hub</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/dashboard.jpg?raw=true" alt="Dashboard" width="200"/>
+    </td>
+    <td align="center">
+      <b>SOS Alert – Emergency Trigger</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/sos.jpg?raw=true" alt="SOS Screen" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>Community Reports – Stay Updated</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/communityreports.jpg?raw=true" alt="Community Reports" width="200"/>
+    </td>
+    <td align="center">
+      <b>Incident Reporting – Report an Issue</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/report.jpg?raw=true" alt="Incident Report" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>Safety Heatmap – Visualize Risk Areas</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/heatmap.jpg?raw=true" alt="Heatmap" width="200"/>
+    </td>
+    <td align="center">
+      <b>Safe Places – Find Secure Destinations</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/safeplaces.jpg?raw=true" alt="Safe Places" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>Check-In Timer – Automated Safety</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/checkintimer.jpg?raw=true" alt="Check-In Timer" width="200"/>
+    </td>
+    <td align="center">
+      <b>Tips – Smart Safety Guidance</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/tips.jpg?raw=true" alt="Safety Tips" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <b>Profile & Emergency Info</b><br>
+      <img src="https://github.com/GauravPandey05/safesteps-app/blob/master/assets/screenshots/profile.jpg?raw=true" alt="Profile & Emergency Info" width="200"/>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🧑‍💻 Tech Stack
 
 | Layer          | Tools Used                                   |
 | -------------- | -------------------------------------------- |
@@ -53,7 +104,6 @@ With cutting-edge features like geolocation, safety heatmaps, and trusted contac
 ---
 
 ## 📦 Getting Started
-
 > 📌 **Tested and working on Expo SDK 52**
 
 ### 1. Clone the Repository
@@ -85,32 +135,31 @@ Ready to move to the latest SDK? Follow these steps:
 
 1. **Update Expo CLI (Optional):**
 
-   ```bash
-   npm install -g expo-cli
-   ```
+    ```bash
+    npm install -g expo-cli
+    ```
 
 2. **Upgrade SDK:**
 
-   ```bash
-   npx expo upgrade
-   ```
-
-   * Select **SDK 53** when prompted.
+    ```bash
+    npx expo upgrade
+    ```
+    * Select **SDK 53** when prompted.
 
 3. **Install Updated Dependencies:**
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
-4. **Review Breaking Changes:**
+4. **Review Breaking Changes:**  
    Check [Expo SDK 53 Release Notes](https://blog.expo.dev/expo-sdk-53-3e4d6e2e6d8b)
 
 5. **Test Your App:**
 
-   ```bash
-   npx expo start
-   ```
+    ```bash
+    npx expo start
+    ```
 
 ---
 
@@ -146,12 +195,10 @@ safesteps-app/
 
 ---
 
-
 ## ✅ Project Status
 
 * ✔️ **MVP complete** with all core features implemented
-* 🧠 **Future Enhancements:**
-
+* 🦠 **Future Enhancements:**
   * AI-powered safety prediction
   * Community Watch Mode
   * Smart safety tips and guidance
@@ -165,26 +212,26 @@ We welcome contributions! Follow these steps:
 1. **Fork the repository**
 2. **Create a new branch**
 
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
+    ```bash
+    git checkout -b feature/YourFeature
+    ```
 3. **Commit your changes**
 
-   ```bash
-   git commit -am "Add your feature"
-   ```
+    ```bash
+    git commit -am "Add your feature"
+    ```
 4. **Push your branch**
 
-   ```bash
-   git push origin feature/YourFeature
-   ```
+    ```bash
+    git push origin feature/YourFeature
+    ```
 5. **Open a Pull Request** on GitHub
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the **MIT License**.  
 See the [LICENSE](./LICENSE) file for more details.
 
 ---
@@ -195,9 +242,4 @@ See the [LICENSE](./LICENSE) file for more details.
 * [Firebase](https://firebase.google.com/)
 * [React Native](https://reactnative.dev/)
 
-
-
-
 > **Stay safe. Stay informed. Stay connected — with SafeSteps.**
-
-
